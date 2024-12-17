@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+---
+
+<Layout title="Projects">
+    <h1 class="text-3xl font-bold mb-4">Projects</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <ProjectCard
+            title="Portfolio"
+            description="The website you are on right now."
+            image="/placeholder-image.png"
+            liveDemoUrl="#"
+            githubUrl="#"
+            techStack={['Astro', 'Tailwind CSS', 'DaisyUI']}
+        />
+        <ProjectCard
+            title="Space Invaders Clone"
+            description="My take on the classic Space Invaders game."
+            image="/placeholder-image.png"
+            liveDemoUrl="#"
+            githubUrl="#"
+            techStack={['JavaScript', 'HTML', 'CSS']}
+        />
+        <ProjectCard
+            title="Project 3"
+            description="A brief description of Project 3."
+            image="/placeholder-image.png"
+            liveDemoUrl="#"
+            githubUrl="#"
+            techStack={['Java', 'Spring Boot']}
+        />
+    </div>
+</Layout>

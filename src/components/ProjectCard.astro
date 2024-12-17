@@ -1,0 +1,31 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    image: string;
+    liveDemoUrl: string;
+    githubUrl: string;
+    techStack: string[];
+}
+
+const { title, description, image, liveDemoUrl, githubUrl, techStack } = Astro.props;
+---
+
+<div class="card bg-base-100 shadow-xl">
+  <figure><img src={image} alt={title} /></figure>
+  <div class="card-body">
+    <h2 class="card-title">{title}</h2>
+    <p>{description}</p>
+    <div class="card-actions justify-between items-center">
+        <div class="flex gap-2">
+            {techStack.map((tech) => (
+                <span class="badge badge-outline">{tech}</span>
+            ))}
+        </div>
+      <div class="flex gap-2">
+        <a href={liveDemoUrl} class="btn btn-primary">Live Demo</a>
+        <a href={githubUrl} class="btn btn-secondary">GitHub</a>
+      </div>
+    </div>
+  </div>
+</div>
