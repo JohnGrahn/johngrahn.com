@@ -1,0 +1,27 @@
+---
+import data from '../data.yaml';
+---
+<section class="mb-16">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Work Experience</h2>
+        <a href="/work" class="link link-hover">See all work</a>
+    </div>
+    <div class="grid gap-4">
+        {data.workExperience.map((experience) => (
+            <div class="card bg-base-200 hover:shadow-lg transition-shadow">
+                <div class="card-body">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="card-title">{experience.title}</h3>
+                            <p class="text-sm opacity-70">{experience.description}</p>
+                        </div>
+                        <span class="text-sm opacity-70">{experience.time}</span>
+                    </div>
+                    <p class="mt-2">
+                        {experience.details}
+                    </p>
+                </div>
+            </div>
+        ))}
+    </div>
+</section>

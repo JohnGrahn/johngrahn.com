@@ -1,14 +1,17 @@
 ---
 interface Props {
-    title: string;
-    description: string;
-    image: string;
-    liveDemoUrl: string;
-    githubUrl: string;
-    techStack: string[];
+    project: {
+        title: string;
+        description: string;
+        image: string;
+        liveDemoUrl: string;
+        githubUrl: string;
+        techStack: string[];
+    };
 }
 
-const { title, description, image, liveDemoUrl, githubUrl, techStack } = Astro.props;
+const { project } = Astro.props;
+const { title, description, image, liveDemoUrl, githubUrl, techStack } = project;
 ---
 
 <div class="card bg-base-100 shadow-xl">

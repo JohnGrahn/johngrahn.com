@@ -1,0 +1,38 @@
+projects:
+  - title: Portfolio
+    description: The website you are on right now.
+    image: /placeholder-image.png
+    liveDemoUrl: "#"
+    githubUrl: "#"
+    techStack: ["Astro", "Tailwind CSS", "DaisyUI"]
+  - title: Space Invaders Clone
+    description: My take on the classic Space Invaders game.
+    image: /placeholder-image.png
+    liveDemoUrl: "#"
+    githubUrl: "#"
+    techStack: ["JavaScript", "HTML", "CSS"]
+  - title: Project 3
+    description: A brief description of Project 3.
+    image: /placeholder-image.png
+    liveDemoUrl: "#"
+    githubUrl: "#"
+    techStack: ["Java", "Spring Boot"]
+recentProjects:
+  - title: Astro Nano
+    description: Minimal portfolio and blog built with astro and no framework.
+  - title: Astro Sphere
+    description: Portfolio and blog built with astro.
+latestPosts:
+  - title: Getting started
+    description: Hit the ground running.
+  - title: Blog Collection
+    description: How to add posts to your blog.
+workExperience:
+  - title: Google
+    description: Software Engineer
+    time: Dec 2022 - Current
+    details: Sit amet consectetur adipiscing elit, iure libero tempore voluptatem est quaerat voluptas praesentium ipsa dolorem dignissimos nulla ratione distinctio quae maiores eligendi nostrum? Quibusdam, debitis voluptatem, lorem ipsum dolor.
+  - title: Apple
+    description: Senior Developer
+    time: Jan 2020 - Nov 2022
+    details: Voluptatem est quaerat voluptas praesentium ipsa dolorem dignissimos nulla ratione distinctio quae maiores eligendi nostrum? Quibusdam, debitis voluptatem, lorem ipsum dolor. Sit amet consectetur adipiscing elit.

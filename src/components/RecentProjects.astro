@@ -1,0 +1,26 @@
+---
+import data from '../data.yaml';
+---
+<section class="mb-16">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Recent projects</h2>
+        <a href="/projects" class="link link-hover">See all projects</a>
+    </div>
+    <div class="grid gap-4">
+        {data.recentProjects.map((project) => (
+            <div class="card bg-base-200 hover:shadow-lg transition-shadow">
+                <div class="card-body">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="card-title">{project.title}</h3>
+                            <p class="text-sm opacity-70">{project.description}</p>
+                        </div>
+                    </div>
+                    <p class="mt-2">
+                        {project.description}
+                    </p>
+                </div>
+            </div>
+        ))}
+    </div>
+</section>
