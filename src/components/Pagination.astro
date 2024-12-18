@@ -1,0 +1,25 @@
+---
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  url: {
+    prev?: string;
+    next?: string;
+  };
+}
+
+const { currentPage, totalPages, url } = Astro.props;
+---
+
+<div class="join mt-4">
+  {url.prev && <a href={url.prev} class="join-item btn">« Prev</a>}
+  {Array.from({ length: totalPages }, (_, i) => (
+    <a
+      href={`/blog/page/${i + 1}`}
+      class={`join-item btn ${currentPage === i + 1 ? 'btn-active' : ''}`}
+    >
+      {i + 1}
+    </a>
+  ))}
+  {url.next && <a href={url.next} class="join-item btn">Next »</a>}
+</div>
