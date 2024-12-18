@@ -17,10 +17,9 @@ interface Props {
 const { tag } = Astro.props;
 const posts = await getCollection('blog', (post: CollectionEntry<'blog'>) => post.data.tags.includes(tag));
 const title = `Posts tagged with "${tag}"`;
-const description = `A collection of blog posts tagged with "${tag}".`;
 ---
 
-<BlogPostLayout title={title} description={description} pubDate="" author="">
+<BlogPostLayout title={title} pubDate="" author="">
   <ul class="space-y-4">
     {posts.map((post: CollectionEntry<'blog'>) => (
       <li class="card bg-base-100 shadow-xl">
