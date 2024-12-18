@@ -7,7 +7,7 @@ projects:
     techStack: ["Astro", "Tailwind CSS", "DaisyUI"]
   - title: Space Invaders Clone
     description: My take on the classic Space Invaders game.
-    image: /placeholder-image.png
+    image: /images/projects/spaceinvaders.png
     liveDemoUrl: "#"
     githubUrl: "#"
     techStack: ["JavaScript", "HTML", "CSS"]
