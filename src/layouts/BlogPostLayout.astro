@@ -16,7 +16,7 @@ const { title, pubDate, author, image, tags, ...props } = Astro.props;
 ---
 
 <Layout title={title} {...props}>
-  <article class="prose prose-lg dark:prose-invert pt-16">
+  <article class="pt-16">
     {image && <img src={image} alt="" class="mt-4 rounded-md w-full" />}
     <div class="mb-8">
       <h1 class="text-3xl font-bold mb-2">{title}</h1>

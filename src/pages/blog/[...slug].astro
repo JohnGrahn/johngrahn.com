@@ -20,5 +20,7 @@ const { Content } = await post.render();
 ---
 
 <BlogPostLayout title={title} pubDate={pubDate.toLocaleDateString()} author={author} image={image} tags={tags}>
-    <Content />
+    <div class="prose prose-lg dark:prose-invert">
+        <Content />
+    </div>
 </BlogPostLayout>
