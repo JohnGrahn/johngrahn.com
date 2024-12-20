@@ -17,36 +17,37 @@ interface Props {
 const { project, index = 0 } = Astro.props;
 const { title, description, image, liveDemoUrl, githubUrl, techStack } = project;
 
-// Direct glob import for images
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif}');
 ---
 
-<div class="card bg-base-100 shadow-xl">
-  <figure>
+<div class="card bg-base-100 shadow-xl h-full flex flex-col">
+  <figure class="h-[250px] md:h-[350px] bg-base-200">
     {image && images[image] ? (
       <Image 
         src={images[image]()} 
         alt={title}
-        
+        class="w-full h-full object-cover"
         loading={index <= 2 ? "eager" : "lazy"}
         decoding={index <= 2 ? "sync" : "async"}
       />
     ) : (
-      <div class="bg-base-200 w-full h-[350px] flex items-center justify-center text-base-content/50">
+      <div class="w-full h-full flex items-center justify-center text-base-content/50">
         No image available
       </div>
     )}
   </figure>
-  <div class="card-body">
-    <h2 class="card-title">{title}</h2>
-    <p>{description}</p>
-    <div class="card-actions justify-between items-center">
-      <div class="flex gap-2">
+  <div class="card-body flex flex-col justify-between flex-grow p-5 md:p-8">
+    <div>
+      <h2 class="card-title text-xl md:text-xl mb-2 md:mb-2">{title}</h2>
+      <p class="text-base md:text-base mb-3 md:mb-4">{description}</p>
+    </div>
+    <div class="space-y-3 md:space-y-4">
+      <div class="flex flex-wrap gap-2">
         {techStack.map((tech) => (
-          <span class="badge badge-outline">{tech}</span>
+          <span class="badge badge-outline text-sm md:text-sm">{tech}</span>
         ))}
       </div>
-      <div class="flex gap-2">
+      <div class="card-actions justify-end">
         <a href={liveDemoUrl} class="btn btn-primary">Live Demo</a>
         <a href={githubUrl} class="btn btn-secondary">GitHub</a>
       </div>
