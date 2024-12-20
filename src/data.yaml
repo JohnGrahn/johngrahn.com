@@ -1,19 +1,19 @@
 projects:
   - title: Portfolio
     description: The website you are on right now.
-    image: /placeholder-image.png
+    image: 
     liveDemoUrl: "#"
     githubUrl: "#"
     techStack: ["Astro", "Tailwind CSS", "DaisyUI"]
   - title: Space Invaders Clone
     description: My take on the classic Space Invaders game.
-    image: /images/projects/spaceinvaders.png
+    image: /src/assets/images/spaceinvaders.png
     liveDemoUrl: "#"
     githubUrl: "#"
     techStack: ["JavaScript", "HTML", "CSS"]
   - title: Project 3
     description: A brief description of Project 3.
-    image: /placeholder-image.png
+    image: /src/assets/images/spaceinvaders.png
     liveDemoUrl: "#"
     githubUrl: "#"
     techStack: ["Java", "Spring Boot"]

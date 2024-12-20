@@ -1,30 +1,51 @@
 ---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
 interface Props {
     project: {
         title: string;
         description: string;
-        image: string;
+        image: string | null;
         liveDemoUrl: string;
         githubUrl: string;
         techStack: string[];
     };
+    index?: number;
 }
 
-const { project } = Astro.props;
+const { project, index = 0 } = Astro.props;
 const { title, description, image, liveDemoUrl, githubUrl, techStack } = project;
+
+// Direct glob import for images
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif}');
 ---
 
 <div class="card bg-base-100 shadow-xl">
-  <figure><img src={image} alt={title} /></figure>
+  <figure>
+    {image && images[image] ? (
+      <Image 
+        src={images[image]()} 
+        alt={title}
+        
+        loading={index <= 2 ? "eager" : "lazy"}
+        decoding={index <= 2 ? "sync" : "async"}
+      />
+    ) : (
+      <div class="bg-base-200 w-full h-[350px] flex items-center justify-center text-base-content/50">
+        No image available
+      </div>
+    )}
+  </figure>
   <div class="card-body">
     <h2 class="card-title">{title}</h2>
     <p>{description}</p>
     <div class="card-actions justify-between items-center">
-        <div class="flex gap-2">
-            {techStack.map((tech) => (
-                <span class="badge badge-outline">{tech}</span>
-            ))}
-        </div>
+      <div class="flex gap-2">
+        {techStack.map((tech) => (
+          <span class="badge badge-outline">{tech}</span>
+        ))}
+      </div>
       <div class="flex gap-2">
         <a href={liveDemoUrl} class="btn btn-primary">Live Demo</a>
         <a href={githubUrl} class="btn btn-secondary">GitHub</a>

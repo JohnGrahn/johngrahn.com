@@ -1,9 +1,11 @@
+/// <reference types="astro/client" />
+
 declare module '*.yaml' {
     const data: {
         projects: {
             title: string;
             description: string;
-            image: string;
+            image: string | null;
             liveDemoUrl: string;
             githubUrl: string;
             techStack: string[];
@@ -24,4 +26,4 @@ declare module '*.yaml' {
         }[];
     };
     export default data;
-}
+} 
