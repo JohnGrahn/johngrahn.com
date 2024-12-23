@@ -16,9 +16,9 @@ const { title, pubDate, author, image, tags, ...props } = Astro.props;
 ---
 
 <Layout title={title} {...props}>
-  <article class="pt-16">
+  <article class="pt-16 max-w-3xl mx-auto">
     {image && <img src={image} alt="" class="mt-4 rounded-md w-full" />}
-    <div class="mb-8">
+    <div class="mb-8 text-center">
       <h1 class="text-3xl font-bold mb-2">{title}</h1>
       {pubDate && author && (
         <div class="text-sm text-gray-500 dark:text-gray-400">
@@ -26,13 +26,15 @@ const { title, pubDate, author, image, tags, ...props } = Astro.props;
         </div>
       )}
       {tags && (
-        <div class="mt-4 flex flex-wrap gap-2">
+        <div class="mt-4 flex flex-wrap gap-2 justify-center">
           {tags.map((tag) => (
             <span class="badge badge-secondary">{tag}</span>
           ))}
         </div>
       )}
     </div>
-    <slot />
+    <div class="prose prose-lg dark:prose-invert mx-auto">
+      <slot />
+    </div>
   </article>
 </Layout>
