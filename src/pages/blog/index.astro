@@ -1,12 +1,11 @@
 ---
-import BlogPostLayout from '../../layouts/BlogLayout.astro';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Pagination from '../../components/Pagination.astro';
-import BlogLayout from '../../layouts/BlogLayout.astro';
 
 const allPosts = await getCollection('blog');
 const title = "Blog";
-const description = "A collection of my thoughts and experiences as a software developer.";
 
 const { page } = Astro.params;
 const pageSize = 6;
@@ -28,17 +27,8 @@ const url = {
 
 <BlogLayout title={title}>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    {posts.map((post: CollectionEntry<'blog'>) => (
-      <div class="card bg-base-100 shadow-xl">
-        {post.data.image && <img src={post.data.image} alt={post.data.title} class="rounded-t-md" />}
-        <div class="card-body">
-          <h2 class="card-title">{post.data.title}</h2>
-          <p>{post.data.description}</p>
-          <div class="card-actions justify-end">
-            <a href={`/blog/${post.slug}`} class="btn btn-primary">Read More</a>
-          </div>
-        </div>
-      </div>
+    {posts.map((post: CollectionEntry<'blog'>, index: number) => (
+      <BlogCard post={post} index={index} />
     ))}
   </div>
   <Pagination currentPage={currentPage} totalPages={totalPages} url={url} />

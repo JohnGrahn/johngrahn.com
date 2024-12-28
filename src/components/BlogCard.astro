@@ -1,0 +1,42 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  index?: number;
+}
+
+const { post, index = 0 } = Astro.props;
+const { title, description, image, imageAlt } = post.data;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif}');
+---
+
+<div class="card bg-base-100 shadow-xl h-full flex flex-col">
+  <figure class="relative aspect-[16/9] w-full bg-base-200">
+    {image && images[image] ? (
+      <Image 
+        src={images[image]()} 
+        alt={imageAlt || title}
+        class="object-contain w-full h-full"
+        loading={index <= 2 ? "eager" : "lazy"}
+        decoding={index <= 2 ? "sync" : "async"}
+        width={800}
+        height={450}
+      />
+    ) : (
+      <div class="w-full h-full flex items-center justify-center text-base-content/50">
+        No image available
+      </div>
+    )}
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">{title}</h2>
+    <p>{description}</p>
+    <div class="card-actions justify-end mt-auto">
+      <a href={`/blog/${post.slug}`} class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+</div> 

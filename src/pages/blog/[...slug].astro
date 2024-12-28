@@ -17,9 +17,17 @@ interface Props {
 const { post } = Astro.props;
 const { title, pubDate, author, image, tags } = post.data;
 const { Content } = await post.render();
+
+// Format the date to ensure consistency
+const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric',
+  timeZone: 'UTC'  // This ensures the date is treated as UTC
+});
 ---
 
-<BlogPostLayout title={title} pubDate={pubDate.toLocaleDateString()} author={author} image={image} tags={tags}>
+<BlogPostLayout title={title} pubDate={formattedDate} author={author} image={image} tags={tags}>
     <div class="prose prose-lg dark:prose-invert">
         <Content />
     </div>

@@ -1,4 +1,5 @@
 import { defineCollection, z } from 'astro:content';
+import { type ImageMetadata } from 'astro';
 
 const blog = defineCollection({
   schema: z.object({
@@ -8,6 +9,7 @@ const blog = defineCollection({
     author: z.string(),
     tags: z.array(z.string()),
     image: z.string().optional(),
+    imageAlt: z.string().optional(),
   }),
 });
 
