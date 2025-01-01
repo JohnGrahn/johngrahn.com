@@ -10,12 +10,13 @@ interface Props {
         liveDemoUrl: string;
         githubUrl: string;
         techStack: string[];
+        slug?: string;
     };
     index?: number;
 }
 
 const { project, index = 0 } = Astro.props;
-const { title, description, image, liveDemoUrl, githubUrl, techStack } = project;
+const { title, description, image, liveDemoUrl, githubUrl, techStack, slug } = project;
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif}');
 ---
@@ -49,7 +50,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{j
       </div>
       <div class="card-actions justify-end">
         <a href={liveDemoUrl} class="btn btn-primary">Live Demo</a>
-        <a href={githubUrl} class="btn btn-secondary">GitHub</a>
+        <a href={`/projects/${slug}`} class="btn btn-secondary">View Project</a>
+        <a href={githubUrl} class="btn btn-accent">GitHub</a>
       </div>
     </div>
   </div>

@@ -1,15 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import data from '../data.yaml';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const projects = await getCollection('projects');
 ---
 
 <Layout title="Projects">
     <h1 class="text-3xl font-bold mb-4">Projects</h1>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {data.projects.map((project, index) => (
+        {projects.map((project: CollectionEntry<'projects'>, index: number) => (
             <ProjectCard 
-                project={project} 
+                project={{
+                    ...project.data,
+                    slug: project.slug
+                }}
                 index={index}
             />
         ))}

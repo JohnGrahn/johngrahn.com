@@ -1,0 +1,53 @@
+---
+import Layout from './Layout.astro';
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  liveDemoUrl: string;
+  githubUrl: string;
+  techStack: string[];
+}
+
+const { title, description, image, liveDemoUrl, githubUrl, techStack } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif}');
+---
+
+<Layout title={title}>
+  <article class="pt-16 max-w-4xl mx-auto">
+    <header class="mb-12">
+      <h1 class="text-4xl font-bold mb-4 text-center">{title}</h1>
+      <p class="text-xl text-center mb-6">{description}</p>
+      
+      <div class="flex flex-wrap gap-2 justify-center mb-6">
+        {techStack.map((tech) => (
+          <span class="badge badge-outline">{tech}</span>
+        ))}
+      </div>
+
+      {image && images[image] && (
+        <figure class="aspect-video w-full bg-base-200 rounded-lg overflow-hidden mb-6">
+          <Image 
+            src={images[image]()} 
+            alt={title}
+            class="w-full h-full object-cover"
+            width={1200}
+            height={675}
+          />
+        </figure>
+      )}
+
+      <div class="flex justify-center gap-4">
+        <a href={liveDemoUrl} class="btn btn-primary">Live Demo</a>
+        <a href={githubUrl} class="btn btn-secondary">View Source</a>
+      </div>
+    </header>
+
+    <div class="prose prose-lg dark:prose-invert mx-auto">
+      <slot />
+    </div>
+  </article>
+</Layout> 
