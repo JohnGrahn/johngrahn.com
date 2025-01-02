@@ -1,10 +1,13 @@
 ---
-import BlogLayout from '../../layouts/BlogLayout.astro';
+import Layout from '../../layouts/Layout.astro';
 import BlogCard from '../../components/BlogCard.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Pagination from '../../components/Pagination.astro';
 
-const allPosts = await getCollection('blog');
+// Get all posts and sort them by pubDate in descending order
+const allPosts = (await getCollection('blog')).sort(
+  (a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
 const title = "Blog";
 
 const { page } = Astro.params;
@@ -25,11 +28,19 @@ const url = {
 };
 ---
 
-<BlogLayout title={title}>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    {posts.map((post: CollectionEntry<'blog'>, index: number) => (
-      <BlogCard post={post} index={index} />
-    ))}
+<Layout title={title}>
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4">{title}</h1>
+      <p class="text-lg text-base-content/70">Latest articles and updates</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {posts.map((post: CollectionEntry<'blog'>, index: number) => (
+        <BlogCard post={post} index={index} />
+      ))}
+    </div>
+    <div class="mt-12">
+      <Pagination currentPage={currentPage} totalPages={totalPages} url={url} />
+    </div>
   </div>
-  <Pagination currentPage={currentPage} totalPages={totalPages} url={url} />
-</BlogLayout>
+</Layout>

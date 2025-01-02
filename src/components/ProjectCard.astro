@@ -22,14 +22,16 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{j
 ---
 
 <div class="card bg-base-100 shadow-xl h-full flex flex-col">
-  <figure class="h-[250px] md:h-[350px] bg-base-200">
+  <figure class="relative aspect-[4/3] w-full bg-base-200">
     {image && images[image] ? (
       <Image 
         src={images[image]()} 
         alt={title}
-        class="w-full h-full object-cover"
+        class="w-full h-full object-contain"
         loading={index <= 2 ? "eager" : "lazy"}
         decoding={index <= 2 ? "sync" : "async"}
+        width={800}
+        height={600}
       />
     ) : (
       <div class="w-full h-full flex items-center justify-center text-base-content/50">
@@ -37,22 +39,20 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{j
       </div>
     )}
   </figure>
-  <div class="card-body flex flex-col justify-between flex-grow p-5 md:p-8">
+  <div class="card-body flex flex-col justify-between flex-grow p-6">
     <div>
-      <h2 class="card-title text-xl md:text-xl mb-2 md:mb-2">{title}</h2>
-      <p class="text-base md:text-base mb-3 md:mb-4">{description}</p>
-    </div>
-    <div class="space-y-3 md:space-y-4">
-      <div class="flex flex-wrap gap-2">
+      <h2 class="card-title text-xl mb-3">{title}</h2>
+      <p class="mb-4 text-base-content/80">{description}</p>
+      <div class="flex flex-wrap gap-2 mb-4">
         {techStack.map((tech) => (
-          <span class="badge badge-outline text-sm md:text-sm">{tech}</span>
+          <span class="badge badge-outline">{tech}</span>
         ))}
       </div>
-      <div class="card-actions justify-end">
-        <a href={liveDemoUrl} class="btn btn-primary">Live Demo</a>
-        <a href={`/projects/${slug}`} class="btn btn-secondary">View Project</a>
-        <a href={githubUrl} class="btn btn-accent">GitHub</a>
-      </div>
+    </div>
+    <div class="card-actions justify-end">
+      <a href={liveDemoUrl} class="btn btn-primary btn-sm">Live Demo</a>
+      <a href={`/projects/${slug}`} class="btn btn-secondary btn-sm">View Project</a>
+      <a href={githubUrl} class="btn btn-accent btn-sm">GitHub</a>
     </div>
   </div>
 </div>

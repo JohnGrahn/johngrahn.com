@@ -2,7 +2,7 @@
 title: My First Blog Post
 description: This is a sample blog post to test the Astro blog feature.
 author: Jack
-pubDate: 2024-07-25
+pubDate: 2024-07-20
 tags: ["test", "blog"]
 image: /src/assets/blog/Astro.png
 ---

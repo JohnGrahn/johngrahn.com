@@ -15,16 +15,16 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{j
 ---
 
 <div class="card bg-base-100 shadow-xl h-full flex flex-col">
-  <figure class="relative aspect-[16/9] w-full bg-base-200">
+  <figure class="relative aspect-[4/3] w-full bg-base-200">
     {image && images[image] ? (
       <Image 
         src={images[image]()} 
         alt={imageAlt || title}
-        class="object-contain w-full h-full"
+        class="w-full h-full object-contain"
         loading={index <= 2 ? "eager" : "lazy"}
         decoding={index <= 2 ? "sync" : "async"}
         width={800}
-        height={450}
+        height={600}
       />
     ) : (
       <div class="w-full h-full flex items-center justify-center text-base-content/50">
@@ -32,11 +32,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{j
       </div>
     )}
   </figure>
-  <div class="card-body">
-    <h2 class="card-title">{title}</h2>
-    <p>{description}</p>
-    <div class="card-actions justify-end mt-auto">
-      <a href={`/blog/${post.slug}`} class="btn btn-primary">Read More</a>
+  <div class="card-body p-6">
+    <h2 class="card-title text-xl mb-3">{title}</h2>
+    <p class="text-base-content/80">{description}</p>
+    <div class="card-actions justify-end mt-4">
+      <a href={`/blog/${post.slug}`} class="btn btn-primary btn-sm">Read More</a>
     </div>
   </div>
 </div> 
