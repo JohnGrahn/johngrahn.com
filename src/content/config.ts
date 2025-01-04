@@ -26,7 +26,16 @@ const projects = defineCollection({
   }),
 });
 
+const resume = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    lastUpdated: z.coerce.date(),
+  }),
+});
+
 export const collections = {
   blog,
   projects,
+  resume,
 };
