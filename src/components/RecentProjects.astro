@@ -1,5 +1,12 @@
 ---
-import data from '../data.yaml';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+// Get all projects, sort by pubDate, and take the 2 most recent ones
+const projects = (await getCollection('projects'))
+    .sort((a: CollectionEntry<'projects'>, b: CollectionEntry<'projects'>) => 
+        b.data.pubDate.getTime() - a.data.pubDate.getTime()
+    )
+    .slice(0, 2);
 ---
 <section class="mb-16">
     <div class="flex justify-between items-center mb-6">
@@ -7,20 +14,23 @@ import data from '../data.yaml';
         <a href="/projects" class="link link-hover">See all projects</a>
     </div>
     <div class="grid gap-4">
-        {data.recentProjects.map((project) => (
-            <div class="card bg-base-200 hover:shadow-lg transition-shadow">
+        {projects.map((project: CollectionEntry<'projects'>) => (
+            <a href={`/projects/${project.slug}`} class="card bg-base-200 hover:shadow-lg transition-all hover:scale-[1.01]">
                 <div class="card-body">
                     <div class="flex justify-between items-start">
                         <div>
-                            <h3 class="card-title">{project.title}</h3>
-                            <p class="text-sm opacity-70">{project.description}</p>
+                            <h3 class="card-title">{project.data.title}</h3>
+                            <p class="text-sm opacity-70">{project.data.description}</p>
                         </div>
                     </div>
-                    <p class="mt-2">
-                        {project.description}
-                    </p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        {project.data.techStack.map((tech: string) => (
+                            <span class="badge badge-outline">{tech}</span>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            </a>
         ))}
     </div>
 </section>
+

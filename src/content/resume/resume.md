@@ -1,6 +1,6 @@
 ---
 title: Resume
-
+lastUpdated: 2025-01-06
 ---
 
 John Grahn  
