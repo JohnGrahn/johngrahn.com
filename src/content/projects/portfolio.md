@@ -4,7 +4,7 @@ description: The website you are on right now.
 image: 
 liveDemoUrl: "#"
 githubUrl: "#"
-techStack: ["Astro", "Tailwind CSS", "DaisyUI"]
+techStack: ["Astro", "Tailwind CSS"]
 featured: true
 pubDate: 2024-03-20
 ---

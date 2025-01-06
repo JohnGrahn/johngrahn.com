@@ -1,5 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import { techIconMap } from '../utils/techIcons';
 
 // Get all projects, sort by pubDate, and take the 2 most recent ones
 const projects = (await getCollection('projects'))
@@ -25,7 +27,15 @@ const projects = (await getCollection('projects'))
                     </div>
                     <div class="flex flex-wrap gap-2 mt-4">
                         {project.data.techStack.map((tech: string) => (
-                            <span class="badge badge-outline">{tech}</span>
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium bg-base-100 hover:bg-base-200 transition-colors duration-200 gap-1.5 border border-base-300">
+                                {techIconMap[tech] && (
+                                    <Icon 
+                                        name={techIconMap[tech]} 
+                                        class="w-4 h-4"
+                                    />
+                                )}
+                                <span class="relative top-[1px]">{tech}</span>
+                            </span>
                         ))}
                     </div>
                 </div>

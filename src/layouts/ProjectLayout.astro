@@ -2,6 +2,8 @@
 import Layout from './Layout.astro';
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import { techIconMap } from '../utils/techIcons';
 
 interface Props {
   title: string;
@@ -24,7 +26,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{j
       
       <div class="flex flex-wrap gap-2 justify-center mb-6">
         {techStack.map((tech) => (
-          <span class="badge badge-outline">{tech}</span>
+          <span class="inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium bg-base-200 hover:bg-base-300 transition-colors duration-200 gap-2 border border-base-300">
+            {techIconMap[tech] && (
+              <Icon 
+                name={techIconMap[tech]} 
+                class="w-4 h-4"
+              />
+            )}
+            {tech}
+          </span>
         ))}
       </div>
 

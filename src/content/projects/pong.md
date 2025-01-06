@@ -4,7 +4,7 @@ description: A classic Pong game implementation using TypeScript and HTML5 Canva
 image: /src/assets/images/pong.png
 liveDemoUrl: "https://pong.johngrahn.com"
 githubUrl: "https://github.com/JohnGrahn/ts-pong"
-techStack: ["TypeScript", "HTML5 Canvas", "CSS"]
+techStack: ["TypeScript", "HTML", "CSS"]
 featured: true
 pubDate: 2024-03-21
 ---
