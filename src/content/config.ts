@@ -31,6 +31,13 @@ const resume = defineCollection({
   schema: z.object({
     title: z.string(),
     lastUpdated: z.coerce.date(),
+    workExperience: z.array(z.object({
+      company: z.string(),
+      location: z.string(),
+      title: z.string(),
+      period: z.string(),
+      details: z.array(z.string())
+    }))
   }),
 });
 

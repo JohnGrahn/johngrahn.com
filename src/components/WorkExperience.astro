@@ -1,25 +1,42 @@
 ---
-import data from '../data.yaml';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+// Get the resume content
+const resume = (await getCollection('resume'))[0];
+const workExperience = resume.data.workExperience;
+
+// Define the type for a work experience entry based on the schema
+type WorkExperienceEntry = {
+  company: string;
+  location: string;
+  title: string;
+  period: string;
+  details: string[];
+};
 ---
+
 <section class="mb-16">
     <div class="flex justify-between items-center mb-6">
         <h2 class="text-2xl font-bold">Work Experience</h2>
-        <a href="/work" class="link link-hover">See all work</a>
+        <a href="/resume" class="link link-hover">See full resume</a>
     </div>
     <div class="grid gap-4">
-        {data.workExperience.map((experience) => (
+        {workExperience.slice(0, 2).map((experience: WorkExperienceEntry) => (
             <div class="card bg-base-200 hover:shadow-lg transition-shadow">
                 <div class="card-body">
                     <div class="flex justify-between items-start">
                         <div>
-                            <h3 class="card-title">{experience.title}</h3>
-                            <p class="text-sm opacity-70">{experience.description}</p>
+                            <h3 class="card-title text-xl">{experience.company}</h3>
+                            <p class="text-base opacity-70">{experience.title}</p>
+                            <p class="text-base opacity-70">{experience.location}</p>
                         </div>
-                        <span class="text-sm opacity-70">{experience.time}</span>
+                        <span class="text-base opacity-70">{experience.period}</span>
                     </div>
-                    <p class="mt-2">
-                        {experience.details}
-                    </p>
+                    <ul class="mt-4 list-disc list-inside space-y-2">
+                        {experience.details.slice(0, 4).map((detail: string) => (
+                            <li class="text-base text-base-content/80">{detail}</li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         ))}

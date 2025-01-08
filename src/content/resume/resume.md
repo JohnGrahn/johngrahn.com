@@ -1,6 +1,36 @@
 ---
 title: Resume
 lastUpdated: 2025-01-06
+workExperience:
+  - company: DataAnnotation.Tech
+    location: Remote
+    title: Software Developer – AI Trainer
+    period: October 2023 – Present
+    details:
+      - Implement reinforcement learning from human feedback (RLHF) techniques to optimize machine learning model efficiency and performance
+      - Develop and evaluate Python and JavaScript code, including reviewing and correcting AI-generated code for accuracy and functionality
+      - Design tailored prompts for diverse AI tasks, adapting parameters to meet specific project requirements
+      - Ensure AI models adhere to legal and ethical obligations
+  - company: Contractor
+    location: Connecticut
+    title: Independent Contractor
+    period: August 2017 – October 2023
+    details:
+      - Mow, water, weed, and fertilize lawns
+      - Plant bushes, trees, and build landscaping features
+      - Conduct snow removal, plowing, and sidewalk clearing
+      - Repair and paint doors, windows, walls, ceilings
+      - Repair appliances and electronics such as refrigerators, washers, dryers, desktop and laptop computers
+  - company: The Hartford Financial Services Group, Inc.
+    location: Hartford, Connecticut
+    title: Information Technology Intern
+    period: June 2014—August 2014   June 2015—December 2016
+    details:
+      - Engineered and deployed a web-based application using JavaScript and SharePoint for user recertification
+      - Provided technical support for company-wide meetings, including audio, video, and livestreaming services
+      - Provided remote end user iOS support with Microsoft Intune
+      - Managed inventory and maintenance of audiovisual equipment across multiple conference rooms
+      - Developed and distributed company-wide documentation on conference room technology usage
 ---
 
 John Grahn  
