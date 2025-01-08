@@ -1,5 +1,10 @@
 ---
-import data from '../data.yaml';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+// Fetch the latest blog posts
+const posts = (await getCollection('blog'))
+  .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3); // Adjust the number of posts as needed
 ---
 <section class="mb-16">
     <div class="flex justify-between items-center mb-6">
@@ -7,13 +12,13 @@ import data from '../data.yaml';
         <a href="/posts" class="link link-hover">See all posts</a>
     </div>
     <div class="grid gap-4">
-        {data.latestPosts.map((post) => (
-            <div class="card bg-base-200 hover:shadow-lg transition-shadow">
+        {posts.map((post: CollectionEntry<'blog'>) => (
+            <a href={`/blog/${post.slug}`} class="card bg-base-200 hover:shadow-lg transition-shadow">
                 <div class="card-body">
-                    <h3 class="card-title">{post.title}</h3>
-                    <p>{post.description}</p>
+                    <h3 class="card-title">{post.data.title}</h3>
+                    <p>{post.data.description}</p>
                 </div>
-            </div>
+            </a>
         ))}
     </div>
 </section>
