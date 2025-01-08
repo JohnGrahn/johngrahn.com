@@ -1,21 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import ResumeContent from '../components/ResumeContent.astro';
 
-// Get the resume content from the content collection
-const resume = (await getCollection('resume'))[0];
-const { Content } = await resume.render();
-
-// PDF file URL - you'll need to add your PDF to the public folder
+// PDF file URL
 const pdfUrl = '/JohnGrahnResume.pdf';
 ---
 
 <Layout title="Resume">
-  <div class="container mx-auto px-4 max-w-6xl">
-    <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold mb-4">Resume</h1>
-      <p class="text-lg text-base-content/70">My professional experience and skills</p>
-      <div class="flex justify-center gap-4 mt-6">
+  <div class="container mx-auto px-4 py-8">
+    <div class="text-center mb-8">
+      <div class="flex justify-center gap-4">
         <a href={pdfUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
           View PDF Version
         </a>
@@ -23,8 +17,6 @@ const pdfUrl = '/JohnGrahnResume.pdf';
       </div>
     </div>
     
-    <div class="prose prose-lg dark:prose-invert mx-auto">
-      <Content />
-    </div>
+    <ResumeContent />
   </div>
 </Layout> 
