@@ -14,9 +14,9 @@ const currentPath = pathname.slice(1); // Remove leading slash
                 </label>
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52">
                     <li><a href="/" class={`${currentPath === "" ? "bg-primary text-primary-content hover:bg-primary/90" : ""}`}>Home</a></li>
+                    <li><a href="/resume" class={`${currentPath === "resume" ? "bg-primary text-primary-content hover:bg-primary/90" : ""}`}>Resume</a></li>
                     <li><a href="/projects" class={`${currentPath === "projects" ? "bg-primary text-primary-content hover:bg-primary/90" : ""}`}>Projects</a></li>
                     <li><a href="/blog" class={`${currentPath === "blog" ? "bg-primary text-primary-content hover:bg-primary/90" : ""}`}>Blog</a></li>
-                    <li><a href="/resume" class={`${currentPath === "resume" ? "bg-primary text-primary-content hover:bg-primary/90" : ""}`}>Resume</a></li>
                 </ul>
             </div>
             <span class="btn btn-ghost normal-case text-xl">
@@ -26,9 +26,9 @@ const currentPath = pathname.slice(1); // Remove leading slash
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
                 <li><a href="/" class={`${currentPath === "" ? "bg-primary text-primary-content hover:bg-primary/90" : ""}`}>Home</a></li>
+                <li><a href="/resume" class={`${currentPath === "resume" ? "bg-primary text-primary-content hover:bg-primary/90" : ""}`}>Resume</a></li>
                 <li><a href="/projects" class={`${currentPath === "projects" ? "bg-primary text-primary-content hover:bg-primary/90" : ""}`}>Projects</a></li>
                 <li><a href="/blog" class={`${currentPath === "blog" ? "bg-primary text-primary-content hover:bg-primary/90" : ""}`}>Blog</a></li>
-                <li><a href="/resume" class={`${currentPath === "resume" ? "bg-primary text-primary-content hover:bg-primary/90" : ""}`}>Resume</a></li>
             </ul>
         </div>
         <div class="navbar-end">
