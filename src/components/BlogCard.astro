@@ -14,8 +14,8 @@ const { title, description, image, imageAlt } = post.data;
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif}');
 ---
 
-<div class="card bg-base-100 shadow-xl h-full flex flex-col">
-  <figure class="relative aspect-[4/3] w-full bg-base-200">
+<div class="card bg-base-200 shadow-xl h-full flex flex-col">
+  <figure class="relative aspect-[4/3] w-full bg-base-300">
     {image && images[image] ? (
       <Image 
         src={images[image]()} 

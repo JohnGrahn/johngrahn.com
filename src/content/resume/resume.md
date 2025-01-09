@@ -1,6 +1,6 @@
 ---
 title: "Resume"
-lastUpdated: "2024-01-06T00:00:00.000Z"
+lastUpdated: "2024-01-06"
 personalInfo:
   name: "John Grahn"
   email: "johngrahn@protonmail.com"
