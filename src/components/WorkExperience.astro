@@ -24,13 +24,15 @@ type WorkExperienceEntry = {
         {workExperience.slice(0, 2).map((experience: WorkExperienceEntry) => (
             <div class="card bg-base-200 hover:shadow-lg transition-shadow">
                 <div class="card-body">
-                    <div class="flex justify-between items-start">
-                        <div>
+                    <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                        <div class="space-y-1">
                             <h3 class="card-title text-xl">{experience.company}</h3>
                             <p class="text-base opacity-70">{experience.title}</p>
                             <p class="text-base opacity-70">{experience.location}</p>
                         </div>
-                        <span class="text-base opacity-70">{experience.period}</span>
+                        <div class="text-base opacity-70">
+                            <span class="whitespace-nowrap">{experience.period}</span>
+                        </div>
                     </div>
                     <ul class="mt-4 list-disc list-inside space-y-2">
                         {experience.details.slice(0, 4).map((detail: string) => (
