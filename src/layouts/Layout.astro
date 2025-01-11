@@ -9,33 +9,28 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<html lang="en" data-theme="wireframe">
+<html lang="en" data-theme="corporate">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
     <script is:inline>
-      function applyTheme() {
-        const theme = (() => {
-          if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-            return localStorage.getItem('theme');
-          }
-          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'black';
-          }
-          return 'wireframe';
-        })();
-
-        if (theme === 'wireframe') {
-          document.documentElement.setAttribute('data-theme', 'wireframe');
-          document.documentElement.classList.remove('dark');
-        } else {
-          document.documentElement.setAttribute('data-theme', 'black');
-          document.documentElement.classList.add('dark');
+      // Inline script that runs immediately
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme') || 'corporate';
         }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'night';
+        }
+        return 'corporate';
+      })();
+
+      // Apply theme immediately to prevent flash
+      document.documentElement.setAttribute('data-theme', theme);
+      if (theme === 'night') {
+        document.documentElement.classList.add('dark');
       }
-      applyTheme();
-      document.addEventListener('astro:after-swap', applyTheme);
     </script>
 </head>
 <body class="min-h-screen flex flex-col">
