@@ -29,7 +29,7 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
 
     <footer class="mt-auto pt-4">
       <div class="flex flex-wrap gap-2 mb-4">
-        {tags.map((tag) => (
+        {tags.map((tag: string) => (
           <a 
             href={`/blog/tag/${tag}`}
             class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium bg-base-300 hover:bg-base-400 transition-colors duration-200 gap-1.5 border border-base-400"
