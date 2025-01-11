@@ -33,31 +33,31 @@ const { personalInfo, education, workExperience, projects, skills } = resume.dat
 
 <div class="max-w-4xl mx-auto">
   <header class="mb-8 text-center">
-    <h1 class="text-3xl font-bold mb-4">{personalInfo.name}</h1>
-    <div class="flex justify-center gap-4 text-base-content/70">
+    <h1 class="text-2xl sm:text-3xl font-bold mb-4">{personalInfo.name}</h1>
+    <div class="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 text-sm sm:text-base text-base-content/70">
       <a href={`mailto:${personalInfo.email}`} class="hover:text-primary">{personalInfo.email}</a>
-      <span>|</span>
+      <span class="hidden sm:inline">|</span>
       <a href={personalInfo.github} class="hover:text-primary">github.com/johngrahn</a>
-      <span>|</span>
+      <span class="hidden sm:inline">|</span>
       <a href={personalInfo.website} class="hover:text-primary">johngrahn.com</a>
     </div>
   </header>
 
   <section class="mb-8">
-    <h2 class="text-2xl font-bold mb-4">Education</h2>
-    <div class="flex justify-between items-start mb-2">
+    <h2 class="text-xl sm:text-2xl font-bold mb-4">Education</h2>
+    <div class="flex flex-col sm:flex-row justify-between items-start mb-2">
       <div>
-        <h3 class="text-xl font-semibold">{education.school}</h3>
-        <p class="text-lg italic">{education.degree}</p>
+        <h3 class="text-lg sm:text-xl font-semibold">{education.school}</h3>
+        <p class="text-base sm:text-lg italic">{education.degree}</p>
       </div>
-      <div class="text-right">
+      <div class="text-left sm:text-right mt-2 sm:mt-0">
         <p class="font-semibold">{education.location}</p>
         <p>Graduated {education.graduationDate}</p>
       </div>
     </div>
     <div class="mt-4">
       <p class="font-semibold mb-2">Relevant Coursework:</p>
-      <p>{education.coursework.join(', ')}</p>
+      <p class="text-sm sm:text-base">{education.coursework.join(', ')}</p>
     </div>
   </section>
 
@@ -89,16 +89,18 @@ const { personalInfo, education, workExperience, projects, skills } = resume.dat
     <div class="space-y-6">
       {projects.map((project: Project) => (
         <div class="mb-6">
-          <div class="flex justify-between items-start mb-2">
+          <div class="flex flex-col sm:flex-row justify-between items-start gap-2 mb-2">
             <h3 class="text-xl font-semibold">
-              {project.title} 
+              {project.title}
               {project.url && (
-                <a href={project.url} class="text-primary hover:text-primary-focus">({project.url})</a>
+                <a href={project.url} class="text-primary hover:text-primary-focus text-base ml-2 block sm:inline">
+                  ({project.url})
+                </a>
               )}
             </h3>
-            <p class="text-sm">{project.techStack.join(', ')}</p>
+            <p class="text-sm bg-base-300 px-3 py-1 rounded-full">{project.techStack.join(', ')}</p>
           </div>
-          <ul class="list-disc list-inside space-y-1">
+          <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
             {project.details.map((detail: string) => (
               <li class="text-base-content/80">{detail}</li>
             ))}

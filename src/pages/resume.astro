@@ -9,11 +9,11 @@ const pdfUrl = '/JohnGrahnResume.pdf';
 <Layout title="Resume">
   <div class="container mx-auto px-4 py-8">
     <div class="text-center mb-8">
-      <div class="flex justify-center gap-4">
-        <a href={pdfUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href={pdfUrl} class="btn btn-primary w-full sm:w-auto" target="_blank" rel="noopener noreferrer">
           View PDF Version
         </a>
-        <button class="btn btn-secondary" onclick="window.print()">Print Resume</button>
+        <button class="btn btn-secondary w-full sm:w-auto" onclick="window.print()">Print Resume</button>
       </div>
     </div>
     
