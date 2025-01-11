@@ -39,11 +39,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{j
       </div>
 
       {image && images[image] && (
-        <figure class="aspect-video w-full bg-base-200 rounded-lg overflow-hidden mb-6">
+        <figure class="w-full bg-base-200 rounded-lg overflow-hidden mb-6">
           <Image 
             src={images[image]()} 
             alt={title}
-            class="w-full h-full object-cover"
+            class="w-full h-auto object-contain mx-auto"
             width={1200}
             height={675}
           />
