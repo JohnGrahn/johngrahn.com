@@ -26,20 +26,6 @@ const { title, description, liveDemoUrl, githubUrl, techStack, slug } = project;
     </div>
     
     <div class="mt-auto space-y-3 sm:space-y-4">
-      <div class="flex flex-wrap gap-1.5 sm:gap-2">
-        {techStack.map((tech) => (
-          <span class="inline-flex items-center px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm font-medium bg-base-200 dark:bg-base-300 hover:bg-base-300 dark:hover:bg-base-200 transition-colors duration-200 gap-1 sm:gap-1.5 border border-base-300 dark:border-base-200">
-            {techIconMap[tech] && (
-              <Icon 
-                name={techIconMap[tech]} 
-                class="w-4 h-4 sm:w-5 sm:h-5"
-              />
-            )}
-            <span class="relative top-[1px]">{tech}</span>
-          </span>
-        ))}
-      </div>
-      
       <div class="card-actions flex-wrap justify-end gap-2 pt-2">
         <a href={liveDemoUrl} class="btn btn-primary btn-xs sm:btn-sm">Live Demo</a>
         <a href={`/projects/${slug}`} class="btn btn-secondary btn-xs sm:btn-sm">View Project</a>
