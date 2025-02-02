@@ -16,31 +16,34 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
   day: 'numeric',
   timeZone: 'UTC'
 });
+
+// Format date in MAR 11, 2024 style
+const shortFormattedDate = new Date(pubDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  timeZone: 'UTC'
+}).toUpperCase();
 ---
 
-<div class="card bg-base-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-  <div class="card-body p-6">
-    <header class="flex justify-between items-start gap-4 mb-3">
-      <h2 class="card-title text-xl">{title}</h2>
-      <time class="text-sm text-base-content/60 whitespace-nowrap">{formattedDate}</time>
-    </header>
+<a href={`/blog/${post.slug}`} class="block">
+  <div class="card bg-base-200 hover:bg-base-300 transition-all duration-200 p-4">
+    <div class="space-y-2">
+      <div class="text-sm text-base-content/70">{shortFormattedDate}</div>
+      
+      <h2 class="text-xl font-semibold">
+        {title}
+      </h2>
 
-    <p class="text-base-content/80 line-clamp-2">{description}</p>
+      <p class="text-base-content/60 text-sm line-clamp-1">{description}</p>
 
-    <footer class="mt-auto pt-4">
-      <div class="flex flex-wrap gap-2 mb-4">
+      <div class="flex flex-wrap gap-2">
         {tags.map((tag: string) => (
-          <a 
-            href={`/blog/tag/${tag}`}
-            class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium bg-base-300 hover:bg-base-400 transition-colors duration-200 gap-1.5 border border-base-400"
-          >
+          <span class="text-xs px-2 py-1 rounded bg-base-300 text-base-content/70 uppercase">
             {tag}
-          </a>
+          </span>
         ))}
       </div>
-      <div class="card-actions justify-end border-t border-base-300 pt-4">
-        <a href={`/blog/${post.slug}`} class="btn btn-primary btn-sm">Read More</a>
-      </div>
-    </footer>
+    </div>
   </div>
-</div>
+</a>
