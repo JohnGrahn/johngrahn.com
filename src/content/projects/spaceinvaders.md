@@ -1,7 +1,7 @@
 ---
 title: "Space Invaders"
 description: "A deep dive into recreating the classic Space Invaders game using modern web technologies and deploying it with Docker."
-image: "/assets/space-invaders-screenshot.png" # Replace with an actual screenshot
+image: "/src/assets/projects/spaceinvaders.png" # Replace with an actual screenshot
 liveDemoUrl: "https://spaceinvaders.johngrahn.com" # Replace with your live demo URL
 githubUrl: "https://github.com/yourusername/space-invaders" # Replace with your GitHub repo URL
 techStack: ["JavaScript", "HTML", "CSS", "Node.js", "Express", "PostgreSQL", "Docker"]
