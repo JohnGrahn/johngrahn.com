@@ -59,6 +59,14 @@ projects:
       - "Developed a responsive SPA portfolio website with React, Tailwind, hosted on Oracle Cloud"
       - "Implemented dynamic routing for seamless navigation"
       - "Containerized the application with Docker for simplified deployment"
+  - title: "TypeScript Pong"
+    url: "https://pong.johngrahn.com"
+    techStack: ["TypeScript", "HTML5", "CSS", "Socket.IO", "Express"]
+    details:
+      - "Developed a real-time multiplayer Pong game using TypeScript and Socket.IO for seamless online gameplay"
+      - "Implemented object-oriented design with classes for Game, Paddle, Ball, and CollisionManager components"
+      - "Created an AI opponent for single-player mode with adaptive difficulty scaling"
+      - "Built a responsive UI that works on both desktop and mobile devices with touch controls"
   - title: "Space Invaders Clone"
     url: "https://spaceinvaders.johngrahn.com"
     techStack: ["JavaScript", "HTML5", "CSS", "Node.js", "Express.js", "Postgres"]
