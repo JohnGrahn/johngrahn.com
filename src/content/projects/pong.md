@@ -1,10 +1,10 @@
 ---
 title: "TypeScript Pong"
-description: "A deep dive into creating a classic Pong game with online multiplayer, using TypeScript, Socket.IO, and HTML5 Canvas."
+description: "TypeScript remake of the classic Pong game with online multiplayer."
 image: "/src/assets/projects/ts-pong.png"  # You might want to update this with a new screenshot
 liveDemoUrl: "https://pong.johngrahn.com"
 githubUrl: "https://github.com/JohnGrahn/ts-pong" # Update with your repo
-techStack: ["TypeScript", "HTML", "CSS", "Socket.IO", "Express", "Node.js"]
+techStack: ["TypeScript", "HTML", "CSS", "Socket.IO", "Express"]
 featured: true
 pubDate: "2025-02-02" # Updated date
 ---
@@ -118,11 +118,11 @@ Developing this multiplayer Pong game was a challenging but rewarding experience
 
 ## Get the Code and Play!
 
-You can find the complete source code for this project on GitHub: [GitHub Repository](https://github.com/JohnGrahn/ts-pong) (replace with your actual repository link).
+You can find the complete source code for this project on GitHub: [GitHub Repository](https://github.com/JohnGrahn/ts-pong) 
 
 Feel free to clone the repository, run it locally, and explore the code. I encourage you to experiment, add your own features, and even try to improve the AI!
 
-**Live Demo:**  You can also play the game live here: [Live Demo](https://pong.johngrahn.com) (replace with your actual demo link).
+**Live Demo:**  You can also play the game live here: [Live Demo](https://pong.johngrahn.com) 
 
 ## Future Enhancements
 

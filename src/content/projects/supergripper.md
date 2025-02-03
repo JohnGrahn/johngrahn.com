@@ -1,6 +1,6 @@
 ---
 title: "Supergripper"
-description: "A ground-breaking project that redefines user interaction."
+description: "Force calculator for the Ivanko Super Gripper"
 image: "/src/assets/projects/supergripper.png"
 liveDemoUrl: "https://supergripper.johngrahn.com"
 githubUrl: "https://github.com/JohnGrahn/supergripper"
