@@ -54,11 +54,11 @@ workExperience:
 projects:
   - title: "Personal Portfolio"
     url: "https://johngrahn.com"
-    techStack: ["React", "Tailwind CSS", "Docker", "Oracle Cloud"]
+    techStack: ["Astro", "TypeScript", "Tailwind CSS", "DaisyUI"]
     details:
-      - "Developed a responsive SPA portfolio website with React, Tailwind, hosted on Oracle Cloud"
-      - "Implemented dynamic routing for seamless navigation"
-      - "Containerized the application with Docker for simplified deployment"
+      - "Developed a fully responsive, high-performance portfolio website using Astro.js, showcasing skills, projects, and a blog."
+      - "Utilized Astro's static site generation capabilities to achieve excellent performance scores, with a focus on SEO and fast load times."
+      - "Implemented CI/CD for automated deployment and containerization with docker, ensuring seamless updates and a streamlined development workflow"
   - title: "TypeScript Pong"
     url: "https://pong.johngrahn.com"
     techStack: ["TypeScript", "HTML5", "CSS", "Socket.IO", "Express"]
