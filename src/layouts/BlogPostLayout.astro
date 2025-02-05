@@ -40,6 +40,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{j
       </div>
     )}
 
+    {/* Tags section commented out
     {tags && (
       <div class="flex flex-wrap gap-2 justify-center mb-12">
         {tags.map((tag) => (
@@ -47,6 +48,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{j
         ))}
       </div>
     )}
+    */}
 
     <div class="prose prose-lg dark:prose-invert mx-auto">
       <slot />
