@@ -67,11 +67,11 @@ projects:
       - "Implemented object-oriented design with classes for Game, Paddle, Ball, and CollisionManager components"
       - "Created an AI opponent for single-player mode with adaptive difficulty scaling"
       - "Built a responsive UI that works on both desktop and mobile devices with touch controls"
-  - title: "Space Invaders Clone"
+  - title: "Space Invaders"
     url: "https://spaceinvaders.johngrahn.com"
     techStack: ["JavaScript", "HTML5", "CSS", "Node.js", "Express.js", "Postgres"]
     details:
-      - "Web-based clone of classic Space Invaders using JavaScript, HTML5 Canvas, and CSS"
+      - "Remake of classic Space Invaders using modern web technologies like JavaScript, HTML5 Canvas, and CSS"
       - "Created persistent leaderboard system with a REST API using Node.js and Express backed by a PostgreSQL database"
       - "Used vanilla JavaScript without libraries to engineer destructible barriers, collision detection, and dynamically scaling difficulty"
 
