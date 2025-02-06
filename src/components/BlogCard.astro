@@ -26,27 +26,37 @@ const shortFormattedDate = new Date(pubDate).toLocaleDateString('en-US', {
 }).toUpperCase();
 ---
 
-<a href={`/blog/${post.slug}`} class="block">
-  <div class="card bg-base-200 hover:bg-base-300 transition-all duration-200 p-4">
-    <div class="space-y-2">
-      <div class="text-sm text-base-content/70">{shortFormattedDate}</div>
-      
-      <h2 class="text-xl font-semibold">
-        {title}
-      </h2>
+<div class="h-[180px] w-full">
+  <a href={`/blog/${post.slug}`} class="block h-full w-full group">
+    <article class="card h-full w-full transition-all duration-300 hover:shadow-lg">
+      <div class="card-body bg-base-200 group-hover:bg-base-300 rounded-xl p-4 h-full">
+        <div class="flex flex-col justify-between h-full">
+          <div class="space-y-2">
+            <time datetime={pubDate.toISOString()} class="text-xs text-base-content/70 font-medium block">
+              {shortFormattedDate}
+            </time>
+            
+            <h2 class="card-title text-base md:text-lg font-bold text-base-content group-hover:text-primary transition-colors duration-200 line-clamp-2">
+              {title}
+            </h2>
 
-      <p class="text-base-content/60 text-sm line-clamp-1">{description}</p>
+            <p class="text-sm text-base-content/70 line-clamp-2">
+              {description}
+            </p>
+          </div>
 
-      {/* Tags section commented out for future use */}
-      {/*
-      <div class="flex flex-wrap gap-2">
-        {tags.map((tag: string) => (
-          <span class="text-xs px-2 py-1 rounded bg-base-300 text-base-content/70 uppercase">
-            {tag}
-          </span>
-        ))}
+          {/* Tags section commented out for future use */}
+          {/*
+          <div class="flex flex-wrap gap-2 mt-2">
+            {tags.map((tag: string) => (
+              <span class="text-xs px-2 py-1 rounded bg-base-300 text-base-content/70 uppercase">
+                {tag}
+              </span>
+            ))}
+          </div>
+          */}
+        </div>
       </div>
-      */}
-    </div>
-  </div>
-</a>
+    </article>
+  </a>
+</div>

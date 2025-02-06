@@ -1,6 +1,6 @@
 ---
 title: "Portfolio"
-description: "My personal portfolio website, showcasing my skills, projects, and experience as a software developer. Built with Astro, Tailwind CSS, and TypeScript."
+description: "My personal portfolio website"
 image: "/src/assets/projects/portfolio-screenshot.png"
 liveDemoUrl: "https://johngrahn.com"
 githubUrl: "https://github.com/JohnGrahn/johngrahn.com"

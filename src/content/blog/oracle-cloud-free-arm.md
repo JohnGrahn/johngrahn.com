@@ -1,6 +1,6 @@
 ---
-title: "Leveraging Oracle Cloud's Free ARM Servers: A Developer's Guide"
-description: "A comprehensive look at Oracle Cloud's Always Free ARM-based compute instances"
+title: "Leveraging Oracle Cloud's Free ARM Servers"
+description: "A look at Oracle Cloud's Always Free ARM-based compute instances"
 pubDate: "2024-03-19"
 author: "John Grahn"
 tags: ["Cloud", "Oracle Cloud", "ARM", "DevOps", "Free Tier"]
