@@ -3,12 +3,12 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import { techIconMap } from '../utils/techIcons';
 
-// Get all projects, sort by pubDate, and take the 2 most recent ones
+// Get all projects, sort by pubDate, and take the 3 most recent ones
 const projects = (await getCollection('projects'))
     .sort((a: CollectionEntry<'projects'>, b: CollectionEntry<'projects'>) => 
         b.data.pubDate.getTime() - a.data.pubDate.getTime()
     )
-    .slice(0, 2);
+    .slice(0, 3);
 ---
 <section class="mb-16">
     <div class="flex justify-between items-center mb-6">
